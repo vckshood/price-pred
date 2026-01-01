@@ -4,6 +4,9 @@ import util
 
 app = Flask(__name__)
 
+# 👇 load model as soon as server imports
+util.load_saved_artifacts()
+
 @app.route('/get_location_names', methods=['GET'])
 def get_location_names():
     response = jsonify({
@@ -11,7 +14,6 @@ def get_location_names():
     })
     response.headers.add('Access-Control-Allow-Origin', '*')
     return response
-
 
 @app.route('/predict_home_price', methods=['GET','POST'])
 def predict_home_price():
@@ -26,8 +28,6 @@ def predict_home_price():
     response.headers.add('Access-Control-Allow-Origin', '*')
     return response
 
-
 if __name__ == "__main__":
     print("Starting Python Flask Server For Home Price Prediction...")
-    util.load_saved_artifacts()
     app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
