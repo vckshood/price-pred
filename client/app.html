@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Bangalore Home Price Prediction</title>
+  <link rel="stylesheet" href="app.css">
+</head>
+
+<body>
+  <div class="bg"></div>
+
+  <div class="container">
+    <div class="card">
+
+      <!-- Theme Toggle -->
+      <button id="themeToggle" class="theme-toggle">🌙</button>
+
+      <h1>🏠 Home Price Predictor</h1>
+      <p class="subtitle">Instant Bangalore property estimates</p>
+
+      <div class="field">
+        <label>Area (sqft)</label>
+        <input type="number" id="uiSqft" value="1000" />
+      </div>
+
+      <div class="field">
+        <label>BHK</label>
+        <div class="pill-group">
+          <input type="radio" name="uiBHK" id="b1" value="1">
+          <label for="b1">1</label>
+          <input type="radio" name="uiBHK" id="b2" value="2" checked>
+          <label for="b2">2</label>
+          <input type="radio" name="uiBHK" id="b3" value="3">
+          <label for="b3">3</label>
+          <input type="radio" name="uiBHK" id="b4" value="4">
+          <label for="b4">4</label>
+        </div>
+      </div>
+
+      <div class="field">
+        <label>Bathrooms</label>
+        <div class="pill-group">
+          <input type="radio" name="uiBathrooms" id="ba1" value="1">
+          <label for="ba1">1</label>
+          <input type="radio" name="uiBathrooms" id="ba2" value="2" checked>
+          <label for="ba2">2</label>
+          <input type="radio" name="uiBathrooms" id="ba3" value="3">
+          <label for="ba3">3</label>
+        </div>
+      </div>
+
+      <div class="field">
+        <label>Location</label>
+        <select id="uiLocations"></select>
+      </div>
+
+      <button class="btn" onclick="onClickedEstimatePrice()">Estimate Price</button>
+
+      <div id="uiEstimatedPrice" class="result hidden"></div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
